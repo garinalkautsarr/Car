@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19D4FE6923649E1E00F5C020 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D4FE6823649E1E00F5C020 /* LandingViewController.swift */; };
 		19DEB0C9236441D7009DC71B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DEB0C8236441D7009DC71B /* AppDelegate.swift */; };
 		19DEB0CB236441D7009DC71B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DEB0CA236441D7009DC71B /* SceneDelegate.swift */; };
 		19DEB0CD236441D7009DC71B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DEB0CC236441D7009DC71B /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19D4FE6823649E1E00F5C020 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		19DEB0C5236441D7009DC71B /* Car.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Car.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DEB0C8236441D7009DC71B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19DEB0CA236441D7009DC71B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19D4FE6A2364A29C00F5C020 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				19DEB0CC236441D7009DC71B /* ViewController.swift */,
+				19D4FE6823649E1E00F5C020 /* LandingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		19D4FE6B2364A2AB00F5C020 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19DEB0CE236441D7009DC71B /* Main.storyboard */,
+				19DEB0D3236441DB009DC71B /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19D4FE6C2364A2BC00F5C020 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				19DEB0DC23644243009DC71B /* Networking.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		19DEB0BC236441D7009DC71B = {
 			isa = PBXGroup;
 			children = (
@@ -60,11 +88,10 @@
 			children = (
 				19DEB0C8236441D7009DC71B /* AppDelegate.swift */,
 				19DEB0CA236441D7009DC71B /* SceneDelegate.swift */,
-				19DEB0DC23644243009DC71B /* Networking.swift */,
-				19DEB0CC236441D7009DC71B /* ViewController.swift */,
-				19DEB0CE236441D7009DC71B /* Main.storyboard */,
+				19D4FE6C2364A2BC00F5C020 /* Utilities */,
+				19D4FE6A2364A29C00F5C020 /* Controller */,
+				19D4FE6B2364A2AB00F5C020 /* View */,
 				19DEB0D1236441DB009DC71B /* Assets.xcassets */,
-				19DEB0D3236441DB009DC71B /* LaunchScreen.storyboard */,
 				19DEB0D6236441DB009DC71B /* Info.plist */,
 			);
 			path = Car;
@@ -144,6 +171,7 @@
 				19DEB0CD236441D7009DC71B /* ViewController.swift in Sources */,
 				19DEB0C9236441D7009DC71B /* AppDelegate.swift in Sources */,
 				19DEB0CB236441D7009DC71B /* SceneDelegate.swift in Sources */,
+				19D4FE6923649E1E00F5C020 /* LandingViewController.swift in Sources */,
 				19DEB0DD23644243009DC71B /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

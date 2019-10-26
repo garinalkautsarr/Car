@@ -13,7 +13,7 @@ struct Networking {
     
     static func sendGETRequest(withURL url: URL, completion: @escaping (Result<Dictionary<String,Any>, Error>) -> Void){
         let urlSession = URLSession.shared
-        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 20)
+        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         urlRequest.httpBody = nil
         urlRequest.httpMethod = "GET"
         
@@ -49,7 +49,7 @@ struct Networking {
     
     static func sendPOSTRequest(withURL url: URL, withHTTPBody body: Any, completion: ((Result<Dictionary<String,Any>, Error>) -> Void)? = nil ){
         let urlSession = URLSession.shared
-        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 20)
+        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         urlRequest.allHTTPHeaderFields = [
             "Content-Type" : "application/json"
         ]

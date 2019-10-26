@@ -26,7 +26,7 @@ class ViewController : UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet var outletCollection: [UIButton]!
     
-    private static var baseURL = "http://192.168.1.12/"
+    private static var baseURL = "http://"
     
     private var isServerActive: Bool! {
         didSet{
@@ -50,7 +50,13 @@ class ViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sendHomePageRequest()
+        async {
+            self.performSegue(withIdentifier: .landingViewControllerSegue, sender: self)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        (segue.destination as! LandingViewController).delegate = self
     }
     
     private func sendHomePageRequest(){
@@ -61,6 +67,7 @@ class ViewController : UIViewController {
                 self.async{
                     self.statusLabel.text = error.localizedDescription
                 }
+                
             case .success(let dict):
                 self.async {
                     self.statusLabel.text = dict["message"]! as? String
@@ -183,5 +190,21 @@ extension UIViewController {
         DispatchQueue.main.async {
             block()
         }
+    }
+}
+
+extension String {
+    static var landingViewControllerSegue : String{
+        get{
+            return "LandingViewControllerSegue"
+        }
+    }
+}
+
+extension ViewController : LandingViewControllerDelegate {
+    func didEnterIPAddress(_ IPAddress: String) {
+        ViewController.baseURL += IPAddress + "/"
+        statusLabel.text = "Connecting to server (\(ViewController.baseURL)) .."
+        sendHomePageRequest()
     }
 }
