@@ -186,7 +186,7 @@ class ViewController : UIViewController {
 }
 
 extension UIViewController {
-    func async(block: @escaping () -> Void){
+    func async(block: @escaping () -> Void) {
         DispatchQueue.main.async {
             block()
         }
@@ -194,7 +194,7 @@ extension UIViewController {
 }
 
 extension String {
-    static var landingViewControllerSegue : String{
+    static var landingViewControllerSegue : String {
         get{
             return "LandingViewControllerSegue"
         }

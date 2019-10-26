@@ -46,9 +46,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-GX-nQB">
-                                <rect key="frame" x="16" y="20" width="288" height="35"/>
+                                <rect key="frame" x="16" y="20" width="288" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="qTH-6F-pIa"/>
+                                    <constraint firstAttribute="height" constant="50" id="qTH-6F-pIa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -167,20 +167,31 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="IP Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cfX-Fa-9vJ">
-                                <rect key="frame" x="35" y="256.5" width="250" height="35"/>
+                                <rect key="frame" x="35" y="236.5" width="250" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="TO3-zS-oLE"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="TO3-zS-oLE"/>
                                     <constraint firstAttribute="height" constant="35" id="zQb-X6-3Y8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure your device and NodeMCU are on the same network." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uF-DB-zfH">
+                                <rect key="frame" x="16" y="63" width="288" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="a5G-wj-osE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Tk9-jv-pfV" firstAttribute="leading" secondItem="2tC-U0-dUx" secondAttribute="leading" constant="16" id="6BQ-bU-qYW"/>
-                            <constraint firstItem="cfX-Fa-9vJ" firstAttribute="centerY" secondItem="bJ0-G9-4PG" secondAttribute="centerY" id="Zt2-XG-flh"/>
+                            <constraint firstItem="0uF-DB-zfH" firstAttribute="leading" secondItem="Tk9-jv-pfV" secondAttribute="leading" id="B6H-qA-WLc"/>
+                            <constraint firstItem="0uF-DB-zfH" firstAttribute="top" secondItem="Tk9-jv-pfV" secondAttribute="bottom" constant="8" id="WDY-sD-wv8"/>
+                            <constraint firstItem="cfX-Fa-9vJ" firstAttribute="centerY" secondItem="bJ0-G9-4PG" secondAttribute="centerY" constant="-20" id="Zt2-XG-flh"/>
                             <constraint firstItem="cfX-Fa-9vJ" firstAttribute="centerX" secondItem="bJ0-G9-4PG" secondAttribute="centerX" id="d78-iq-Fvn"/>
+                            <constraint firstItem="0uF-DB-zfH" firstAttribute="trailing" secondItem="Tk9-jv-pfV" secondAttribute="trailing" id="h1Z-PN-McR"/>
                             <constraint firstItem="Tk9-jv-pfV" firstAttribute="top" secondItem="2tC-U0-dUx" secondAttribute="top" constant="20" id="j74-oe-vSu"/>
                             <constraint firstItem="2tC-U0-dUx" firstAttribute="trailing" secondItem="Tk9-jv-pfV" secondAttribute="trailing" constant="16" id="tMt-8l-9fb"/>
                         </constraints>
@@ -192,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yMt-QS-s4h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784" y="114"/>
+            <point key="canvasLocation" x="783.75" y="113.02816901408451"/>
         </scene>
     </scenes>
     <resources>

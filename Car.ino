@@ -2,6 +2,8 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 
+// Make sure your client device and NodeMCU are on the same network.
+
 const char *ssid = "airtel123";
 const char *password = "manas@123";
 
