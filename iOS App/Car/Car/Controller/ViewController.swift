@@ -56,7 +56,12 @@ class ViewController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as! LandingViewController).delegate = self
+        (segue.destination as! LandingViewController).onEntryOfIPAddress = { (IPAddress) in
+            print(IPAddress)
+            ViewController.baseURL += IPAddress + "/"
+            self.statusLabel.text = "Connecting to server (\(ViewController.baseURL)) .."
+            self.sendHomePageRequest()
+        }
     }
     
     private func sendHomePageRequest(){
@@ -198,13 +203,5 @@ extension String {
         get{
             return "LandingViewControllerSegue"
         }
-    }
-}
-
-extension ViewController : LandingViewControllerDelegate {
-    func didEnterIPAddress(_ IPAddress: String) {
-        ViewController.baseURL += IPAddress + "/"
-        statusLabel.text = "Connecting to server (\(ViewController.baseURL)) .."
-        sendHomePageRequest()
     }
 }

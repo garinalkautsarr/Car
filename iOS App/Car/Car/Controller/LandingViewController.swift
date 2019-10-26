@@ -8,15 +8,11 @@
 
 import UIKit
 
-protocol LandingViewControllerDelegate {
-    func didEnterIPAddress(_ IPAddress: String)
-}
-
 class LandingViewController : UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
-    var delegate: LandingViewControllerDelegate?
+    var onEntryOfIPAddress: ((String) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +40,7 @@ extension LandingViewController : UITextFieldDelegate {
         if textField.text == nil || textField.text!.isEmpty {
             return false
         }
-        delegate?.didEnterIPAddress(textField.text!)
+        onEntryOfIPAddress?(textField.text!)
         dismiss(animated: true)
         return true
     }
