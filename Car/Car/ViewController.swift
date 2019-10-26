@@ -26,20 +26,22 @@ class ViewController : UIViewController {
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet var outletCollection: [UIButton]!
     
+    private static var baseURL = "http://192.168.1.12/"
+    
     private var isServerActive: Bool! {
         didSet{
-            if !isServerActive{
+            if isServerActive{
                 outletCollection.forEach { (button) in
                     async {
-                        button.isEnabled = false
-                        button.setTitleColor(.lightGray, for: .disabled)
+                        button.isEnabled = true
+                        button.setTitleColor(.label, for: .normal)
                     }
                 }
             }else{
                 outletCollection.forEach { (button) in
                     async {
-                        button.isEnabled = true
-                        button.setTitleColor(.label, for: .normal)
+                        button.isEnabled = false
+                        button.setTitleColor(.lightGray, for: .disabled)
                     }
                 }
             }
@@ -52,7 +54,7 @@ class ViewController : UIViewController {
     }
     
     private func sendHomePageRequest(){
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL)!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -68,7 +70,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func upButtonPressed(_ sender: UIButton) {
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/forward")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "forward")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -85,7 +87,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/right")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "right")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -102,7 +104,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func downButtonPressed(_ sender: UIButton) {
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/reverse")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "reverse")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -119,7 +121,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func leftButtonPressed(_ sender: UIButton) {
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/left")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "left")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -136,7 +138,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func stopButtonPressed(_ sender: UIButton) {
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/stop")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "stop")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -153,7 +155,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func berzerkButtonPressed(_ sender: UIButton) {
-        Networking.sendGETRequest(withURL: URL(string: "http://192.168.1.12/berzerk")!) { (result) in
+        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "berzerk")!) { (result) in
             
             switch result {
             case .failure(let error):
