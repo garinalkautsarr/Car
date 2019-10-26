@@ -40,6 +40,9 @@ void setup(void) {
   Serial.print("Connected to ");
   Serial.println(ssid);
   Serial.print("IP address: ");
+
+  // NAT assigns a IP address to NodeMCU and then it runs a server to which other devices can connect to on the same network.
+
   Serial.println(WiFi.localIP());
 
   // Server endpoints
