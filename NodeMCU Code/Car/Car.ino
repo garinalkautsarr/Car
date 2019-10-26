@@ -18,10 +18,10 @@ void stopCar(void);
 void notFound(void);
 void goBerzerk(void);
 
-const int motorOneA = D7;
-const int motorOneB = D8;
-const int motorTwoA = D2;
-const int motorTwoB = D3;
+const int motorOneA = D1;
+const int motorOneB = D2;
+const int motorTwoA = D3;
+const int motorTwoB = D4;
 
 void setup(void) {
   Serial.begin(9600);
