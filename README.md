@@ -1,6 +1,7 @@
 # Car
 
-How To- 
+Usage 
+
 1. Set up the circuit .
 2. Enter Wi-Fi ssid and password in NodeMCU code.
 3. Upload Code to NodeMCU and get the IP Address printed in the Serial Monitor.
