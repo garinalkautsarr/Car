@@ -56,8 +56,7 @@ class ViewController : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as! LandingViewController).onEntryOfIPAddress = { (IPAddress) in
-            print(IPAddress)
+        (segue.destination as! LandingViewController).onEntryOfIPAddress = { [unowned self] (IPAddress) in
             ViewController.baseURL += IPAddress + "/"
             self.statusLabel.text = "Connecting to server (\(ViewController.baseURL)) .."
             self.sendHomePageRequest()
