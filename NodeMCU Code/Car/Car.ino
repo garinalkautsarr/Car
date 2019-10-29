@@ -1,13 +1,13 @@
-#include <ESP8266WiFi.h>
-#include <WiFiClient.h>
-#include <ESP8266WebServer.h>
+#include <ESP8266WiFi.h> // To connect to Wi-Fi and Get Private IP in LAN
+#include <WiFiClient.h> // To handle Clients
+#include <ESP8266WebServer.h> // To create a local server in LAN
 
 // Make sure your client device and NodeMCU are on the same network.
 
-const char *ssid = "airtel123";
-const char *password = "manas@123";
+const char *ssid = "airtel123"; // name of Wi-Fi network
+const char *password = "manas@123"; // password of Wi-Fi network
 
-ESP8266WebServer server(80);
+ESP8266WebServer server(80); // port 80 for HTTP
 
 void homePage(void);
 void goForward(void);
@@ -26,9 +26,7 @@ const int motorTwoB = D4;
 void setup(void) {
   Serial.begin(9600);
 
-  // Connect to a network
-
-  WiFi.begin(ssid, password);
+  WiFi.begin(ssid, password); // Connect to a network
   Serial.println("");
 
   while (WiFi.status() != WL_CONNECTED) {
@@ -43,7 +41,10 @@ void setup(void) {
 
   // NAT assigns a IP address to NodeMCU and then it runs a server to which other devices can connect to on the same network.
 
-  Serial.println(WiFi.localIP());
+  Serial.println(WiFi.localIP()); // connect to Wi-Fi to get Private IP in LAN
+
+  Serial.print("MAC Address: ");
+  Serial.println(WiFi.macAddress()); // MAC Address of NodeMCU
 
   // Server endpoints
 
@@ -59,10 +60,16 @@ void setup(void) {
   });
   server.begin();
 
+  pinMode(D1, OUTPUT);
+  pinMode(D2, OUTPUT);
+  pinMode(D3, OUTPUT);
+  pinMode(D4, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void homePage(void) {
   Serial.println("Home Page.");
+  digitalWrite(LED_BUILTIN, HIGH);
   server.send(200, "application/json", "{ \"message\" : \"Welcome, The server is up.\" }"); // Status Code, Content-Type/Mime-Type, Data
 }
 
