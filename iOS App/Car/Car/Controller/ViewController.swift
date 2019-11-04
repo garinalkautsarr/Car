@@ -88,6 +88,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func upButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "forward")!) { (result) in
             
@@ -108,6 +109,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func rightButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "right")!) { (result) in
             
@@ -128,6 +130,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func downButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "reverse")!) { (result) in
             
@@ -148,6 +151,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func leftButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "left")!) { (result) in
             
@@ -168,6 +172,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func stopButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "stop")!) { (result) in
             
@@ -188,6 +193,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func honkButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "honk")!) { (result) in
             
@@ -211,6 +217,7 @@ class ViewController : UIViewController {
     }
     
     @IBAction func berzerkButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
         showSpinner()
         Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "berzerk")!) { (result) in
             
