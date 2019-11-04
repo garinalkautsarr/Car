@@ -27,6 +27,8 @@ class LandingViewController : UIViewController {
         textField.returnKeyType = .go
         textField.delegate = self
         
+        presentationController?.delegate = self
+        
         isModalInPresentation = true
         view.backgroundColor = .systemBackground
         
@@ -48,5 +50,12 @@ extension LandingViewController : UITextFieldDelegate {
         onEntryOfIPAddress?(textField.text!)
         dismiss(animated: true)
         return true
+    }
+}
+
+extension LandingViewController : UIAdaptivePresentationControllerDelegate {
+    
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        showSingleOptionAlert(title: nil, message: "Please enter IP Address of the NodeMCU server to begin.", buttonStyle: .default, buttonTitle: "Ok", block: nil)
     }
 }
