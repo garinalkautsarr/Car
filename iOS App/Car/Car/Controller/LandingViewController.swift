@@ -10,6 +10,7 @@ import UIKit
 
 class LandingViewController : UIViewController {
     
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
     var onEntryOfIPAddress: ((String) -> Void)?
@@ -20,8 +21,10 @@ class LandingViewController : UIViewController {
     }
     
     private func setUpUI(){
+        headerLabel.underline()
+        
         textField.becomeFirstResponder()
-        textField.returnKeyType = .done
+        textField.returnKeyType = .go
         textField.delegate = self
         
         isModalInPresentation = true
@@ -31,6 +34,8 @@ class LandingViewController : UIViewController {
         layer.backgroundColor = UIColor.label.cgColor
         layer.frame = CGRect(x: 0, y: textField.frame.size.height, width: textField.frame.size.width, height: 1)
         textField.layer.addSublayer(layer)
+        
+        textField.text = UserDefaults.standard.string(forKey: "IP")
     }
 }
 

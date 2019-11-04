@@ -22,9 +22,9 @@
                                     <constraint firstAttribute="height" constant="50" id="Oib-PW-We4"/>
                                     <constraint firstAttribute="width" constant="100" id="XId-Bf-okf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" image="arrow.up" catalog="system">
+                                <state key="normal" title="⬆️">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -37,8 +37,9 @@
                                     <constraint firstAttribute="width" constant="100" id="Vrx-F3-nMM"/>
                                     <constraint firstAttribute="height" constant="50" id="gCX-0u-q8L"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <state key="normal" image="arrow.down" catalog="system">
+                                <state key="normal" title="⬇️">
                                     <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -58,19 +59,29 @@
                                 <rect key="frame" x="16" y="520" width="288" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHQ-X3-Nvq">
-                                        <rect key="frame" x="0.0" y="0.0" width="134" height="40"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Stop">
+                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="40"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
+                                        <state key="normal" title="✋">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="stopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HUJ-F6-1S1"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMp-3u-FkM">
+                                        <rect key="frame" x="102.5" y="0.0" width="83" height="40"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
+                                        <state key="normal" title="🔊">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="honkButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFo-hZ-Lq3"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHG-B9-69d">
-                                        <rect key="frame" x="154" y="0.0" width="134" height="40"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Berzerk Mode">
+                                        <rect key="frame" x="205.5" y="0.0" width="82.5" height="40"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
+                                        <state key="normal" title="💃">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -87,8 +98,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUh-6T-bVU">
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <state key="normal" image="arrow.left" catalog="system">
+                                        <state key="normal" title="⬅️">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -97,8 +109,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTD-AJ-Gwc">
                                         <rect key="frame" x="104" y="0.0" width="96" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <state key="normal" image="arrow.right" catalog="system">
+                                        <state key="normal" title="➡️">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
@@ -132,6 +145,7 @@
                     <connections>
                         <outlet property="berzerkButton" destination="hHG-B9-69d" id="79b-oD-f4N"/>
                         <outlet property="downButton" destination="Kfs-HW-XHA" id="xka-Nk-lRC"/>
+                        <outlet property="honkButton" destination="gMp-3u-FkM" id="SaB-br-DG1"/>
                         <outlet property="leftButton" destination="EUh-6T-bVU" id="LYG-iw-uIg"/>
                         <outlet property="rightButton" destination="aTD-AJ-Gwc" id="dXY-zg-PNi"/>
                         <outlet property="statusLabel" destination="hCh-GX-nQB" id="gMv-zi-AAN"/>
@@ -143,6 +157,7 @@
                         <outletCollection property="outletCollection" destination="Kfs-HW-XHA" collectionClass="NSMutableArray" id="PLO-Go-jze"/>
                         <outletCollection property="outletCollection" destination="KHQ-X3-Nvq" collectionClass="NSMutableArray" id="vtF-Xg-ESN"/>
                         <outletCollection property="outletCollection" destination="hHG-B9-69d" collectionClass="NSMutableArray" id="c5S-LS-LJD"/>
+                        <outletCollection property="outletCollection" destination="gMp-3u-FkM" collectionClass="NSMutableArray" id="V2a-jW-q5B"/>
                         <segue destination="IgG-1I-ZF9" kind="presentation" identifier="LandingViewControllerSegue" id="G4B-gX-da3"/>
                     </connections>
                 </viewController>
@@ -158,7 +173,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter IP Address of Node MCU Server" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tk9-jv-pfV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter IP Address of NodeMCU Server." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tk9-jv-pfV">
                                 <rect key="frame" x="16" y="20" width="288" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="BoW-0l-8Yp"/>
@@ -172,7 +187,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="TO3-zS-oLE"/>
                                     <constraint firstAttribute="height" constant="35" id="zQb-X6-3Y8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure your device and NodeMCU are on the same network." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uF-DB-zfH">
@@ -198,6 +213,7 @@
                         <viewLayoutGuide key="safeArea" id="2tC-U0-dUx"/>
                     </view>
                     <connections>
+                        <outlet property="headerLabel" destination="Tk9-jv-pfV" id="wV8-7A-WzM"/>
                         <outlet property="textField" destination="cfX-Fa-9vJ" id="bxk-75-LF7"/>
                     </connections>
                 </viewController>
@@ -206,10 +222,4 @@
             <point key="canvasLocation" x="783.75" y="113.02816901408451"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.down" catalog="system" width="58" height="64"/>
-        <image name="arrow.left" catalog="system" width="64" height="48"/>
-        <image name="arrow.right" catalog="system" width="64" height="48"/>
-        <image name="arrow.up" catalog="system" width="58" height="64"/>
-    </resources>
 </document>

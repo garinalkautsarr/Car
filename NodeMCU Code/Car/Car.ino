@@ -4,8 +4,8 @@
 
 // Make sure your client device and NodeMCU are on the same network.
 
-const char *ssid = "airtel123"; // name of Wi-Fi network
-const char *password = "manas@123"; // password of Wi-Fi network
+const char *ssid = "Manas"; // name of Wi-Fi network
+const char *password = "0987654321"; // password of Wi-Fi network
 
 ESP8266WebServer server(80); // port 80 for HTTP
 
@@ -17,19 +17,25 @@ void goRight(void);
 void stopCar(void);
 void notFound(void);
 void goBerzerk(void);
-
-const int motorOneA = D1;
-const int motorOneB = D2;
-const int motorTwoA = D3;
-const int motorTwoB = D4;
+void honk(void);
 
 void setup(void) {
   Serial.begin(9600);
+
+  pinMode(D1, OUTPUT);
+  pinMode(D2, OUTPUT);
+  pinMode(D3, OUTPUT);
+  pinMode(D4, OUTPUT);
+  pinMode(D8, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 
   WiFi.begin(ssid, password); // Connect to a network
   Serial.println("");
 
   while (WiFi.status() != WL_CONNECTED) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(500);
+    digitalWrite(LED_BUILTIN, LOW);
     delay(500);
     Serial.print(".");
   }
@@ -55,41 +61,61 @@ void setup(void) {
   server.on("/right", goRight);
   server.on("/stop", stopCar);
   server.on("/berzerk", goBerzerk);
+  server.on("/honk", honk);
   server.onNotFound([]() {
     notFound();
   });
   server.begin();
 
-  pinMode(D1, OUTPUT);
-  pinMode(D2, OUTPUT);
-  pinMode(D3, OUTPUT);
-  pinMode(D4, OUTPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void homePage(void) {
   Serial.println("Home Page.");
-  digitalWrite(LED_BUILTIN, HIGH);
+
   server.send(200, "application/json", "{ \"message\" : \"Welcome, The server is up.\" }"); // Status Code, Content-Type/Mime-Type, Data
 }
 
 void goForward(void) {
   Serial.println("Go Forward.");
+
+  digitalWrite(D1, HIGH);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, HIGH);
+  digitalWrite(D4, LOW);
+
   server.send(200, "application/json", "{ \"message\" : \"Car is going forward.\" }");
 }
 
 void goBack(void) {
   Serial.println("Go Back.");
+
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, HIGH);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, HIGH);
+
   server.send(200, "application/json", "{ \"message\" : \"Car is going in reverse.\" }");
 }
 
 void goLeft(void) {
   Serial.println("Go Left.");
+
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, HIGH);
+  digitalWrite(D4, LOW);
+
   server.send(200, "application/json", "{ \"message\" : \"Car is going left.\" }");
 }
 
 void goRight(void) {
   Serial.println("Go Right.");
+
+  digitalWrite(D1, HIGH);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, LOW);
+
   server.send(200, "application/json", "{ \"message\" : \"Car is going right.\" }");
 }
 
@@ -98,10 +124,10 @@ void stopCar(void) {
   Serial.println("Stop car.");
   server.send(200, "application/json", "{ \"message\" : \"Car is stopped.\" }");
 
-  digitalWrite(motorOneA, LOW);
-  digitalWrite(motorOneB, LOW);
-  digitalWrite(motorTwoA, LOW);
-  digitalWrite(motorTwoB, LOW);
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, LOW);
 }
 
 void goBerzerk(void) {
@@ -109,28 +135,37 @@ void goBerzerk(void) {
   Serial.println("Go Berzerk.");
   server.send(200, "application/json", "{ \"message\" : \"Car is going Berzerk.\" }");
 
-  digitalWrite(motorOneA, HIGH);
-  digitalWrite(motorOneB, LOW);
-  digitalWrite(motorTwoA, HIGH);
-  digitalWrite(motorTwoB, LOW);
+  digitalWrite(D1, HIGH);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, HIGH);
 
   delay(10000);
 
-  digitalWrite(motorOneA, LOW);
-  digitalWrite(motorOneB, LOW);
-  digitalWrite(motorTwoA, LOW);
-  digitalWrite(motorTwoB, LOW);
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, LOW);
 }
 
 void notFound(void) {
 
-  Serial.println("Not found.");
+  Serial.println("Resource not found.");
   server.send(404, "application/json", "{ \"message\" : \"Resource not found.\" }");
 
-  digitalWrite(motorOneA, LOW);
-  digitalWrite(motorOneB, LOW);
-  digitalWrite(motorTwoA, LOW);
-  digitalWrite(motorTwoB, LOW);
+  digitalWrite(D1, LOW);
+  digitalWrite(D2, LOW);
+  digitalWrite(D3, LOW);
+  digitalWrite(D4, LOW);
+}
+
+void honk(void) {
+  Serial.println("Honk.");
+  server.send(200, "application/json", "{ \"message\" : \"Car is honking.\" }");
+
+  digitalWrite(D8, HIGH);
+  delay(1000);
+  digitalWrite(D8, LOW);
 }
 
 void loop(void) {
