@@ -30,7 +30,6 @@ class LandingViewController : UIViewController {
         presentationController?.delegate = self
         
         isModalInPresentation = true
-        view.backgroundColor = .systemBackground
         
         let layer = CALayer()
         layer.backgroundColor = UIColor.label.cgColor

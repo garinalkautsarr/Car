@@ -129,28 +129,6 @@ class ViewController : UIViewController {
         }
     }
     
-    @IBAction func downButtonPressed(_ sender: UIButton) {
-        sender.shrinkAndExpand()
-        showSpinner()
-        
-        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "reverse")!) { (result) in
-            
-            switch result {
-            case .failure(let error):
-                self.async {
-                    self.hideSpinner()
-                    self.statusLabel.text = error.localizedDescription
-                }
-                
-            case .success(let dict):
-                self.async{
-                    self.hideSpinner()
-                    self.statusLabel.text = dict["message"]! as? String
-                }
-            }
-        }
-    }
-    
     @IBAction func leftButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
@@ -166,6 +144,28 @@ class ViewController : UIViewController {
                 
             case .success(let dict):
                 self.async {
+                    self.hideSpinner()
+                    self.statusLabel.text = dict["message"]! as? String
+                }
+            }
+        }
+    }
+    
+    @IBAction func downButtonPressed(_ sender: UIButton) {
+        sender.shrinkAndExpand()
+        showSpinner()
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "reverse")!) { (result) in
+            
+            switch result {
+            case .failure(let error):
+                self.async {
+                    self.hideSpinner()
+                    self.statusLabel.text = error.localizedDescription
+                }
+                
+            case .success(let dict):
+                self.async{
                     self.hideSpinner()
                     self.statusLabel.text = dict["message"]! as? String
                 }
@@ -206,7 +206,7 @@ class ViewController : UIViewController {
                 self.async {
                     self.hideSpinner()
                     self.statusLabel.text = dict["message"]! as? String
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.statusLabel.text = "Your next move?"
                     }
                 }
