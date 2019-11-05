@@ -26,7 +26,6 @@ class ViewController : UIViewController {
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var downButton: UIButton!
     @IBOutlet weak var leftButton: UIButton!
-    
     @IBOutlet var outletCollection: [UIButton]!
     
     private static var baseURL = "http://"
@@ -37,14 +36,12 @@ class ViewController : UIViewController {
                 outletCollection.forEach { (button) in
                     async {
                         button.isEnabled = true
-                        button.setTitleColor(.label, for: .normal)
                     }
                 }
             }else{
                 outletCollection.forEach { (button) in
                     async {
                         button.isEnabled = false
-                        button.setTitleColor(.lightGray, for: .disabled)
                     }
                 }
             }
@@ -69,7 +66,8 @@ class ViewController : UIViewController {
     
     private func sendHomePageRequest(){
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL)!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL)!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -90,7 +88,8 @@ class ViewController : UIViewController {
     @IBAction func upButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "forward")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "forward")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -111,7 +110,8 @@ class ViewController : UIViewController {
     @IBAction func rightButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "right")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "right")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -132,7 +132,8 @@ class ViewController : UIViewController {
     @IBAction func downButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "reverse")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "reverse")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -153,7 +154,8 @@ class ViewController : UIViewController {
     @IBAction func leftButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "left")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "left")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -174,7 +176,8 @@ class ViewController : UIViewController {
     @IBAction func stopButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "stop")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "stop")!) { (result) in
             
             switch result {
             case .failure(let error):
@@ -195,7 +198,8 @@ class ViewController : UIViewController {
     @IBAction func honkButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "honk")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "honk")!) { (result) in
             
             switch result {
             case .success(let dict):
@@ -219,7 +223,8 @@ class ViewController : UIViewController {
     @IBAction func berzerkButtonPressed(_ sender: UIButton) {
         sender.shrinkAndExpand()
         showSpinner()
-        Networking.sendGETRequest(withURL: URL(string: ViewController.baseURL + "berzerk")!) { (result) in
+        
+        Networking.sendPOSTRequest(withURL: URL(string: ViewController.baseURL + "berzerk")!) { (result) in
             
             switch result {
             case .failure(let error):

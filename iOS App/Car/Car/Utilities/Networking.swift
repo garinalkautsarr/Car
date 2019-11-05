@@ -47,7 +47,7 @@ struct Networking {
         task.resume()
     }
     
-    static func sendPOSTRequest(withURL url: URL, withHTTPBody body: Any, completion: ((Result<Dictionary<String,Any>, Error>) -> Void)? = nil ){
+    static func sendPOSTRequest(withURL url: URL, withHTTPBody body: Any? = nil, completion: ((Result<Dictionary<String,Any>, Error>) -> Void)? = nil ){
         let urlSession = URLSession.shared
         var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         urlRequest.allHTTPHeaderFields = [
@@ -55,14 +55,17 @@ struct Networking {
         ]
         
         urlRequest.httpMethod = "POST"
-        var JSONPayload: Data? = nil
-        do {
-            JSONPayload = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
-        }catch{
-            completion?(.failure(error))
+        if let body = body {
+            var JSONPayload: Data? = nil
+            do {
+                JSONPayload = try JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+            }catch{
+                completion?(.failure(error))
+            }
+            
+            urlRequest.httpBody = JSONPayload
         }
         
-        urlRequest.httpBody = JSONPayload
         let task = urlSession.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 completion?(.failure(error))

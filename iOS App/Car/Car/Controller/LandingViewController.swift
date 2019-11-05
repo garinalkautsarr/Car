@@ -44,7 +44,7 @@ class LandingViewController : UIViewController {
 extension LandingViewController : UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField.text == nil || textField.text!.isEmpty {
+        if textField.text.isNil || textField.text!.isEmpty {
             return false
         }
         onEntryOfIPAddress?(textField.text!)
