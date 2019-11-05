@@ -168,7 +168,7 @@ void honk(void) {
   server.send(200, "application/json", "{ \"message\" : \"Car is honking.\" }");
 
   digitalWrite(D8, HIGH);
-  delay(1000);
+  delay(200);
   digitalWrite(D8, LOW);
 }
 

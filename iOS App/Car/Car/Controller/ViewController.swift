@@ -206,7 +206,7 @@ class ViewController : UIViewController {
                 self.async {
                     self.hideSpinner()
                     self.statusLabel.text = dict["message"]! as? String
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         self.statusLabel.text = "Your next move?"
                     }
                 }
