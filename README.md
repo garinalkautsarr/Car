@@ -3,22 +3,31 @@
 # Circuit 
 
  6V Battery Positive - L298N 12V Input
+ 
  6V Battery Negative - L298N GND
  
  L298N Motor1 A - Motor 1
+ 
  L298N Motor1 B - Motor 1
+ 
  L298N Motor2 A - Motor 2
+ 
  L298N Motor2 B - Motor 2
  
  NodeMCU D1 - L298N IN1
+ 
  NodeMCU D2 - L298N IN2
+ 
  NodeMCU D3 - L298N IN3
+ 
  NodeMCU D4 - L298N IN4
  
  D8 - Buzzer (horn) Positive
+ 
  GND - NodeMCU GND
  
  L298N GND - NodeMCU GND (common ground)
+ 
  You can either power your NodeMCU using 5V Output from L298N or using a USB Cable (better way).
 
 # Usage 
