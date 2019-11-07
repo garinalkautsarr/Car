@@ -17,7 +17,7 @@
   GND - NodeMCU GND
 
   L298N GND - NodeMCU GND (common ground)
-  You can either power your NodeMCU using 5V Output from L298N or using a USB Cable (better way).
+  You can either power your NodeMCU using 5V Output from L298N or using a USB Cable or power it using a 9V DC battery (better way).
 */
 
 // Make sure your client device and NodeMCU are on the same network.
